@@ -1,0 +1,11 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+    <h1>0e989f4a </h1>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<p> 6764e7a4  </p>
