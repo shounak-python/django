@@ -18,9 +18,23 @@ class Ad(models.Model) :
     picture = models.BinaryField(null=True, editable=True)
     content_type = models.CharField(max_length=256, null=True, help_text='The MIMEType of the file')
 
+    # favorites
+    favorites = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Fav', related_name='favorite_ads')
+
     # Shows up in the admin list
     def __str__(self):
         return self.title
+
+
+class Fav(models.Model):
+    ad = models.ForeignKey(Ad, on_delete = models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('ad', 'user')
+
+    def __str__(self):
+        return f"{self.user.username} likes {self.ad.title[:10]}"
 
 
 class Comment(models.Model) :
