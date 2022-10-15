@@ -6,19 +6,29 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse
 from ads.forms import CommentForm, CreateForm
+from django.db.models import Q
 
 
 class AdListView(OwnerListView):
     model = Ad
     template_name: str = "ads/ad_list.html"
     def get(self, request):
-        ad_list = Ad.objects.all()
+        strval = request.GET.get('search', False)
+
+        if strval:
+            query = Q(title__icontains=strval)
+            query.add(Q(text__icontains=strval), Q.OR)
+            ad_list = Ad.objects.filter(query).select_related().order_by('-updated_at')[:10]
+
+        else:
+            ad_list = Ad.objects.all()
+        
         favorites = list()
         if request.user.is_authenticated:
             rows = request.user.favorite_ads.values('id')
             favorites = [row['id'] for row in rows]
 
-        ctx = {'ad_list': ad_list, 'favorites': favorites}
+        ctx = {'ad_list': ad_list, 'favorites': favorites, 'search': strval}
 
         return render(request, self.template_name, ctx)
 
@@ -55,6 +65,10 @@ class AdCreateView(LoginRequiredMixin, View):
         ad = form.save(commit=False)
         ad.owner = self.request.user
         ad.save()
+
+        # https://django-taggit.readthedocs.io/en/latest/forms.html#commit-false
+        form.save_m2m()    # Add this
+
         return redirect(self.success_url)
 
 
@@ -78,6 +92,9 @@ class AdUpdateView(LoginRequiredMixin, View):
 
         ad = form.save(commit=False)
         ad.save()
+
+        # https://django-taggit.readthedocs.io/en/latest/forms.html#commit-false
+        form.save_m2m()    # Add this
 
         return redirect(self.success_url)
 
