@@ -1,4 +1,10 @@
-from django.views.generic import CreateView, UpdateView, ListView, DetailView, DeleteView
+from django.views.generic import (
+    CreateView,
+    UpdateView,
+    ListView,
+    DetailView,
+    DeleteView,
+)
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -15,7 +21,6 @@ class AuthorListView(ListView):
 
 
 class AuthorCreateView(LoginRequiredMixin, CreateView):
-    
     def form_valid(self, form):
         object = form.save(commit=False)
         object.author = self.request.user
@@ -24,16 +29,14 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
-
     def get_queryset(self):
-        
+
         qs = super(AuthorUpdateView, self).get_queryset()
         return qs.filter(author=self.request.user)
 
 
 class AuthorDeleteView(LoginRequiredMixin, DeleteView):
-
     def get_queryset(self):
-        
+
         qs = super(AuthorDeleteView, self).get_queryset()
         return qs.filter(author=self.request.user)

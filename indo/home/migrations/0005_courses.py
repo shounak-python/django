@@ -6,20 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0004_alter_specialization_issue_date'),
+        ("home", "0004_alter_specialization_issue_date"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Courses',
+            name="Courses",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='', max_length=100)),
-                ('grade', models.IntegerField()),
-                ('org', models.CharField(default='', max_length=100)),
-                ('issue_date', models.DateField(default='')),
-                ('cred', models.CharField(default='', max_length=100)),
-                ('cred_link', models.CharField(default='', max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="", max_length=100)),
+                ("grade", models.IntegerField()),
+                ("org", models.CharField(default="", max_length=100)),
+                ("issue_date", models.DateField(default="")),
+                ("cred", models.CharField(default="", max_length=100)),
+                ("cred_link", models.CharField(default="", max_length=100)),
             ],
         ),
     ]

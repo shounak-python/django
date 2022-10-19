@@ -6,33 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0001_initial'),
+        ("home", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='specialization',
-            name='cred',
-            field=models.CharField(default='', max_length=100),
+            model_name="specialization",
+            name="cred",
+            field=models.CharField(default="", max_length=100),
         ),
         migrations.AlterField(
-            model_name='specialization',
-            name='cred_link',
-            field=models.CharField(default='', max_length=100),
+            model_name="specialization",
+            name="cred_link",
+            field=models.CharField(default="", max_length=100),
         ),
         migrations.AlterField(
-            model_name='specialization',
-            name='issue_date',
-            field=models.DateField(default=''),
+            model_name="specialization",
+            name="issue_date",
+            field=models.DateField(default=""),
         ),
         migrations.AlterField(
-            model_name='specialization',
-            name='name',
-            field=models.CharField(default='', max_length=100),
+            model_name="specialization",
+            name="name",
+            field=models.CharField(default="", max_length=100),
         ),
         migrations.AlterField(
-            model_name='specialization',
-            name='org',
-            field=models.CharField(default='', max_length=100),
+            model_name="specialization",
+            name="org",
+            field=models.CharField(default="", max_length=100),
         ),
     ]

@@ -6,8 +6,12 @@ from taggit.managers import TaggableManager
 
 # Create your models here.
 
+
 class Blogs(models.Model):
-    title = models.CharField(max_length=100, validators=[MinLengthValidator(5, "Title must be minimum 5 characters.")])
+    title = models.CharField(
+        max_length=100,
+        validators=[MinLengthValidator(5, "Title must be minimum 5 characters.")],
+    )
     content = models.CharField(max_length=2000)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

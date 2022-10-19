@@ -7,19 +7,26 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Specialization',
+            name="Specialization",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('org', models.CharField(max_length=100)),
-                ('issue_date', models.DateField()),
-                ('cred', models.CharField(max_length=100)),
-                ('cred_link', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("org", models.CharField(max_length=100)),
+                ("issue_date", models.DateField()),
+                ("cred", models.CharField(max_length=100)),
+                ("cred_link", models.CharField(max_length=100)),
             ],
         ),
     ]
