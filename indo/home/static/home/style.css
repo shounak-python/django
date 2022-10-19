@@ -1,0 +1,50 @@
+.navs{
+    padding: 0% 6.5%;
+}
+
+#navbar {
+    text-align:center;
+    background-color: #332d2d;
+    color: white;
+}
+
+#navbar a {
+    color: white;
+}
+
+#navbar a:hover {
+    color: yellow;
+    background-color: #332d2d;
+    text-decoration: none;
+}
+
+#indo{
+    font-size: 2em;
+}
+
+#footer {
+    text-align:center;
+    background-color: #332d2d;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.footlinks{
+    padding: 0 1%;
+    color: white;
+}
+
+.bodyblc {
+    padding-left:1%;
+}
+
+.mytable {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+}
+

@@ -1,0 +1,13 @@
+{%include 'home/header.html'%}
+{%block content%}
+<h1>Create Blog</h1>
+<p>
+    <form action="" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type='submit' class="btn btn-primary btn-sm" value="Submit">
+    <input type='reset' class="btn btn-secondary btn-sm" value="Reset">
+    </form>
+</p>
+{%endblock%}
+{%include 'home/footer.html'%}

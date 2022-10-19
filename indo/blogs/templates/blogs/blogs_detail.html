@@ -1,0 +1,22 @@
+{%include 'home/heblogser.html'%}
+
+{%block content%}
+
+<span style="float: right;">
+    ({{ blogs.updated_at }})
+    {% if blogs.author == user %}
+    <a href="{% url 'blogs:blogs_update' blogs.id %}"><i class="fa fa-pencil"></i></a>
+    <a href="{% url 'blogs:blogs_delete' blogs.id %}"><i class="fa fa-trash"></i></a>
+    {% endif %}
+    </span>
+    <h1>{{ blogs.title }}</h1>
+    <p>
+    {{ blogs.content }}
+    </p>
+    <p>
+    <a href="{% url 'blogs:blogs_list' %}">All blogs</a>
+    </p>
+
+{%endblock%}
+
+{%include 'home/footer.html'%}

@@ -1,0 +1,14 @@
+{%include 'home/header.html'%}
+
+{%block content%}
+<h1> Delete Blog</h1>
+<h3> Are you sure you want to delete this blog: {{blogs}}?</h3>
+
+<form action="" method='POST'>
+{% csrf_token %}
+<input type="submit" value="Yes, delete.">
+
+</form>
+{%endblock%}
+
+{%include 'home/footer.html'%}

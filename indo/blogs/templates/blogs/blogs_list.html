@@ -1,0 +1,27 @@
+{%include 'home/header.html'%}
+<h1>Blogs</h1>
+
+<a href="{%url 'blogs:blogs_create'%}">Add Blog</a>
+
+{%if blogs_list%}
+<ul>
+{%for blog in blogs_list%}
+<li>
+    <a href="{%url 'blogs:blogs_detail' blog.id%}">{{blog.title}}</a>
+    {{blog.author}}
+    {% comment %} <p> by {{blog.author}}
+    {%if blog.author==user%}
+        (
+            <a href="{%url 'blogs:blogs_update' blog.id%}">update</a> | 
+            <a href="{%url 'blogs:blogs_delete' blog.id%}">delete</a>
+        )
+    {%endif%}</p> {% endcomment %}
+</li>
+{%endfor%}
+</ul>
+{%else%}
+<p>There are no blogs to read.</p>
+{%endif%}
+
+
+{%include 'home/footer.html'%}
