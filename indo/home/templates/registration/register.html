@@ -4,12 +4,19 @@
 
 {% load crispy_forms_tags %}
 {% include 'home/messages.html' %}
-<div class="bodyblc">
+<div style="background-image:url('/static/blogs/register.jpg'); border-radius: 20px;">
+    <div class="anti-img-content">
+        <strong>REGISTER</strong>
+        <h2>Please register your account to create & edit blogs.</h2>
+    </div>
+    </div>
+<div class="left-container py-5">
 <h1>Register</h1>
 <form method="POST">
     {% csrf_token %}
     {{ register_form|crispy }}
-    <button type="submit">Register</button>
+    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-secondary" type="reset">Clear</button>
 </form>    
 
 {% comment %} <p>If you already have an account, use <a href="{% urls 'home:login' }">Login</a></p> 

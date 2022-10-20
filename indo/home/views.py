@@ -26,6 +26,10 @@ class AboutView(View):
         ctx = {"sp_list": sp_list, "course_list": course_list}
         return render(request, "home/about.html", ctx)
 
+class TutorialView(View):
+    def get(self, request):
+        return render(request, "home/tutorial.html")
+
 
 def register_request(request):
     if request.method == "POST":
@@ -63,7 +67,7 @@ def login_request(request):
         else:
             messages.error(request, "Error: Invalid username or/and password")
     form = AuthenticationForm()
-    ctx = {"login_form": form}
+    ctx = {"form": form}
     return render(request, "registration/login.html", ctx)
 
 

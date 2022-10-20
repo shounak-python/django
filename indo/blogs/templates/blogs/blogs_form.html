@@ -1,14 +1,21 @@
 {%include 'home/header.html'%}
 {% load crispy_forms_tags %}
 {%block content%}
-<h1>Create Blog</h1>
-<p>
-    <form action="" method="POST">
-    {% csrf_token %}
-    {{form|crispy}}
-    <input type='submit' class="btn btn-primary btn-sm" value="Submit">
-    <input type='reset' class="btn btn-secondary btn-sm" value="Reset">
-    </form>
-</p>
+<div style="background-image:url('/static/blogs/form.jpg'); border-radius: 20px;">
+    <div class="anti-img-content">
+        <strong>PEN YOUR BLOG</strong>
+        <h2>Write or edit your blog to your liking.</h2>
+        
+    </div>
+    </div>
+<p style="text-align:center;">
+        <form action="" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type='submit' class="btn btn-primary btn-sm" value="Submit">
+        <input type='reset' class="btn btn-secondary btn-sm" value="Reset">
+        </form>
+    </p>
+
 {%endblock%}
 {%include 'home/footer.html'%}

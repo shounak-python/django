@@ -1,74 +1,117 @@
-{% include 'home/header.html' %}
+{% include 'home/header.html' %} {%block content%}
 
-{%block about%}
-<h1>
-About Content
-</h1>
+<div
+  style="
+    background-image: url('/static/home/page/about.jpg');
+    border-radius: 20px;
+  "
+>
+  <div class="img-content">
+    <strong>About</strong>
+    <h3>Some information about the developer..</h3>
+  </div>
+</div>
+<hr />
+<hr />
 
-
-    <h2> Specializations </h2>
-<div class="mytable">
-    <table class="table table-bordered table-sm">
-        <thead>
-          <tr>
-            <th style="text-align:center" scope="col">#</th>
-            <th style="text-align:center" scope="col">Specialization</th>
-            <th style="text-align:center" scope="col">Offered by</th>
-            <th style="text-align:center" scope="col">Issue Date</th>
-            <th style="text-align:center" scope="col">Credentials</th>
-            <th style="text-align:center" scope="col">Verification Link</th>
-          </tr>
-        </thead>
-        {%for item in sp_list%}
-        <tbody>
-          <tr>
-            <th scope="row">{{forloop.counter}}</th>
-            <td>{{item.name}}</td>
-            <td>{{item.org}}</td>
-            <td>{{item.issue_date}}</td>
-            <td>{{item.cred}}</td>
-            <td><a href="{{item.cred_link}}">Verify</a></td>
-          </tr>
- {%endfor%}
-        </tbody>
-      </table>
+<div class="container" style="color: black">
+  <div class="row">
+    <div class="col">
+      <p>
+        I am <strong>Shounak Deshpande</strong>
+        <span><i> (shounak.python@gmail.com) </i></span>
+      </p>
+      <p>
+        I love coding, learning new technology and teaching about what I know.
+      </p>
+      <p>
+        Apart from that, I also like football, exploring new gadgets and
+        hardware, movies and pets !!
+      </p>
     </div>
-<hr>
-<hr>
-<h2>Certification Courses and Grades</h2>
+    <div class="col">
+      <img src="static\home\page\id.jpg" style="border-radius: 40%" />
+      <p>
+        More information in resume<br />
+        <a
+          href="https://indomitable-tech.herokuapp.com/download/file"
+          target="blank_"
+          >Download Resume</a
+        >
+      </p>
+    </div>
+    <div class="col">
+      <p>My expertise lies in AIML and Data Science.</p>
+      <p>Came in <strong>2nd</strong> in Capgemini's Tech Challenge.</p>
+      <p>
+        I also have experience with Python, Web Development using Django and
+        Flask framework, REST APIs creation and Consumption, SQL and other
+        technologies like Airflow, Kakfa, etc.
+      </p>
+    </div>
+  </div>
+</div>
+
+<hr />
+<hr />
+<h2 class="mid-content1">Specializations</h2>
+<div class="mytable">
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th style="text-align: center" scope="col">#</th>
+        <th style="text-align: center" scope="col">Specialization</th>
+        <th style="text-align: center" scope="col">Offered by</th>
+        <th style="text-align: center" scope="col">Issue Date</th>
+        <th style="text-align: center" scope="col">Credentials</th>
+        <th style="text-align: center" scope="col">Verification Link</th>
+      </tr>
+    </thead>
+    {%for item in sp_list%}
+    <tbody>
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.org}}</td>
+        <td>{{item.issue_date}}</td>
+        <td>{{item.cred}}</td>
+        <td><a href="{{item.cred_link}}">Verify</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+<hr />
+<hr />
+<h2 class="mid-content1">Certification Courses and Grades</h2>
 
 <div class="mytable">
-    <table class="table table-bordered table-sm">
-        <thead>
-          <tr>
-            <th style="text-align:center" scope="col">#</th>
-            <th style="text-align:center" scope="col">Specialization</th>
-            <th style="text-align:center" scope="col">Grade Achieved</th>
-            <th style="text-align:center" scope="col">Offered by</th>
-            <th style="text-align:center" scope="col">Issue Date</th>
-            <th style="text-align:center" scope="col">Credentials</th>
-            <th style="text-align:center" scope="col">Verification Link</th>
-          </tr>
-        </thead>
-        {%for item in course_list%}
-        <tbody>
-          <tr>
-            <th scope="row">{{forloop.counter}}</th>
-            <td>{{item.name}}</td>
-            <td>{{item.grade}}</td>
-            <td>{{item.org}}</td>
-            <td>{{item.issue_date}}</td>
-            <td>{{item.cred}}</td>
-            <td><a href="{{item.cred_link}}">Verify</a></td>
-          </tr>
- {%endfor%}
-        </tbody>
-      </table>
-    </div>
- 
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th style="text-align: center" scope="col">#</th>
+        <th style="text-align: center" scope="col">Specialization</th>
+        <th style="text-align: center" scope="col">Grade</th>
+        <th style="text-align: center" scope="col">Offered by</th>
+        <th style="text-align: center" scope="col">Issue Date</th>
+        <th style="text-align: center" scope="col">Credentials</th>
+        <th style="text-align: center" scope="col">Verification Link</th>
+      </tr>
+    </thead>
+    {%for item in course_list%}
+    <tbody>
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.grade}}</td>
+        <td>{{item.org}}</td>
+        <td>{{item.issue_date}}</td>
+        <td>{{item.cred}}</td>
+        <td><a href="{{item.cred_link}}">Verify</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
 
-{%endblock%}
-
-
-
-{% include 'home/footer.html' %}
+{%endblock%} {% include 'home/footer.html' %}

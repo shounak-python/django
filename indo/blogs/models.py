@@ -12,7 +12,7 @@ class Blogs(models.Model):
         max_length=100,
         validators=[MinLengthValidator(5, "Title must be minimum 5 characters.")],
     )
-    content = models.CharField(max_length=2000)
+    content = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -1,21 +1,30 @@
 {%include 'home/header.html'%}
 
 {%block content%}
+<div style="background-image:url('/static/blogs/detail.jpg'); border-radius: 20px;">
+    <div class="anti-img-content">
+        <strong>{{ blogs.title }}</strong>
+        <h2>by {{blogs.author}}</h2>
+        <h6>created: {{ blogs.created_at }}  
+            <br>updated: {{ blogs.updated_at }}</h6>
+        <h5>{% if blogs.author == user %}
+            <a href="{% url 'blogs:blogs_update' blogs.id %}"><i class="fa fa-pencil"></i> edit</a> |
+            <a href="{% url 'blogs:blogs_delete' blogs.id %}"><i class="fa fa-trash"></i> delete</a>
+            {% endif %}</h5>
+    </div>
+    </div>
 
 <span style="float: right;">
-    ({{ blogs.updated_at }})
-    {% if blogs.author == user %}
-    <a href="{% url 'blogs:blogs_update' blogs.id %}"><i class="fa fa-pencil"></i></a>
-    <a href="{% url 'blogs:blogs_delete' blogs.id %}"><i class="fa fa-trash"></i></a>
-    {% endif %}
-    </span>
-    <h1>{{ blogs.title }}</h1>
+
+
+ 
     <p>
     {{ blogs.content }}
-    </p>
-    <p>
-    <a href="{% url 'blogs:blogs_list' %}">All blogs</a>
-    </p>
+    </p><hr><hr>
+    <a class="btn btn-primary" href="{% url 'blogs:blogs_list' %}" style="float:right;" role="button">All Blogs</a>
+</span>
+
+
 
 {%endblock%}
 
